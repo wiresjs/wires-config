@@ -43,3 +43,46 @@ Transforms into javascript object:
        }
      }
     }
+
+## How to use
+
+### Synchronous reading
+
+    var cfg = new Config();
+    var config = cfg.load('./test.conf');
+    
+    
+### Asynchronous reading
+
+In case if the file is huge, you can do that:
+
+    new Config().load('./test.conf', function(c){
+        console.log(c.data);
+    });
+    
+### Setting up environment variable
+In case if you need to pass some objects to your config, to you can define them in Config constuctor
+   
+    var cfg = new Config({
+       var1: "Some stuff here",
+       var2: 2
+    });
+    
+And you config may look like this
+    
+    app.test.data = [ $var1 $var2 ]
+    
+And the output
+
+    {
+     "app": {
+      "test": {
+       "data": [
+        "Some stuff here",
+        2
+       ]
+      }
+     }
+    }
+    
+
