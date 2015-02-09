@@ -1,14 +1,11 @@
 {
   "name": "nice-config",
   "version": "0.0.6",
-  "description": "Provides nice syntax for configs",
+  "description": "Provides groovy-like free style config syntax",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "http://conmio.artifactoryonline.com/conmio/api/npm/npm_local/"
-  },
   "keywords": [
     "config",
-    "conmio"
+    "parser"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

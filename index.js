@@ -428,7 +428,7 @@ var Config = Class.extend({
     }
 });
 module.exports = Config;
-
+/*
 var cfg = new Config({
     pukka: {
         sukka: 'yeah i am sukka'
@@ -437,4 +437,4 @@ var cfg = new Config({
 
 var data = cfg.load('./test.conf');
 console.log(cfg.get('domain.adapter.type'))
-console.log(JSON.stringify(data.data, 0, 3))
+console.log(JSON.stringify(data.data, 0, 3))*/
