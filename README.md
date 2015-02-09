@@ -60,7 +60,7 @@ In case if the file is huge, you can do that:
         console.log(c.data);
     });
     
-### Setting up environment variable
+### Setting up environment variables
 In case if you need to pass some objects to your config, to you can define them in Config constuctor
    
     var cfg = new Config({
@@ -85,4 +85,9 @@ And the output
      }
     }
     
+### Default values
+
+API has a very convinient method get, which returns default value is object in the config is missing
+
+    c.get('app.port', 8080)
 
