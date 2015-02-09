@@ -415,9 +415,9 @@ var Config = Class.extend({
     },
     onDone: function() {
         if (this.ready) {
-            this.ready(this.data);
+            this.ready(this);
         }
-        this.trigger('ready', this.data)
+        this.trigger('ready', this)
     },
 
     // Searching a particular value using xpath
@@ -428,13 +428,10 @@ var Config = Class.extend({
     }
 });
 module.exports = Config;
-/*
-var cfg = new Config({
-    pukka: {
-        sukka: 'yeah i am sukka'
-    }
+
+var cfg = new Config();
+
+cfg.load('./test.conf', function(c){
+    console.log(JSON.stringify(c.data, 2,1)) ;
 });
 
-var data = cfg.load('./test.conf');
-console.log(cfg.get('domain.adapter.type'))
-console.log(JSON.stringify(data.data, 0, 3))*/

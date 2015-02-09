@@ -1,8 +1,11 @@
 {
-  "name": "nice-config",
-  "version": "0.0.6",
+  "name": "wires-config",
+  "version": "0.0.1",
   "description": "Provides groovy-like free style config syntax",
   "main": "index.js",
+  "repository" :
+  { "type" : "git" , "url" : "http://github.com/wiresjs/wires-config"
+  },
   "keywords": [
     "config",
     "parser"
