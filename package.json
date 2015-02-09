@@ -1,0 +1,23 @@
+{
+  "name": "nice-config",
+  "version": "0.0.6",
+  "description": "Provides nice syntax for configs",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "http://conmio.artifactoryonline.com/conmio/api/npm/npm_local/"
+  },
+  "keywords": [
+    "config",
+    "conmio"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "line-reader": "^0.2.4",
+    "lodash": "^2.4.1",
+    "wires-class": "0.0.0"
+  }
+}
