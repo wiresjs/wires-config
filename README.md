@@ -91,3 +91,11 @@ API has a very convinient method get, which returns default value if object in t
 
     c.get('app.port', 8080)
 
+### Comments
+
+Parser ignores everything that has a starting hashtag token. It ends with new line, or another hashtag 
+
+    app.port = 8080 # This is comment
+    app.logs = true # This is another comment # app.something = 'very important' # Very important
+
+
