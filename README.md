@@ -87,7 +87,7 @@ And the output
     
 ### Default values
 
-API has a very convinient method get, which returns default value is object in the config is missing
+API has a very convinient method get, which returns default value if object in the config is missing
 
     c.get('app.port', 8080)
 
