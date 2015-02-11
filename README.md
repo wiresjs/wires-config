@@ -91,6 +91,15 @@ API has a very convinient method get, which returns default value if object in t
 
     c.get('app.port', 8080)
 
+
+### Global Access
+
+You can register config globally. 
+
+    Config.register('./test.conf', [optional name OR "main" ])
+    var conf = Config.get([default main])
+
+    
 ### Comments
 
 Parser ignores everything that has a starting hashtag token. It ends with new line, or another hashtag 

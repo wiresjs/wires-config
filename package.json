@@ -1,6 +1,6 @@
 {
   "name": "wires-config",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Provides groovy-like free style config syntax",
   "main": "index.js",
   "repository" :

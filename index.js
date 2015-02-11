@@ -426,12 +426,34 @@ var Config = Class.extend({
     get: function(xpath, defaultValues) {
         return getObjectFromXPath(this.data, xpath, defaultValues);
     }
+}, {
+    register : function(file, name)
+    {
+        global.WiresConfig = global.WiresConfig || {};
+        var alias = name || "main";
+        global.WiresConfig[alias] = new Config();
+        global.WiresConfig[alias].load(file);
+    },
+    getMain : function()
+    {
+        return this.getConfig();
+    },
+    getConfig : function(alias)
+    {
+        global.WiresConfig = global.WiresConfig || {};
+        return global.WiresConfig[alias || "main"];
+    }
 });
 module.exports = Config;
 
+/*Config.register('./test.conf')
+
+var conf = Config.get()
+console.log(conf);*/
+/*
 var cfg = new Config();
 
 cfg.load('./test.conf', function(c){
     console.log(JSON.stringify(c.data, 2,1)) ;
-});
+});*/
 
