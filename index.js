@@ -39,14 +39,27 @@ var Token = Class.extend({
 // Takes token as a second argument
 // Considers done if the end token is the same as the starting one
 var StringHandler = Token.extend({
-    initialize: function(conf, token) {
+    initialize: function(conf, token, a, self) {
         this.value = [];
         this.name = 'string'
         this.token = token;
+        this.conf = conf;
+        this.cfg = self;
     },
     receive: function(symbol) {
         if (symbol === this.token) {
             this.value = this.value.join('');
+
+            // Will check for variables within
+          
+            var re = /\$\{([\w.]*)\}/g;
+
+             while (match = re.exec(this.value)) {
+                var xpath = match[1];
+                this.value = this.value.split("${" + xpath + "}").join(
+                    this.cfg.get(xpath, "" ) );
+            }
+            
             return {
                 done: true,
                 waiting: false
@@ -384,7 +397,7 @@ var Config = Class.extend({
 
                 if (hndl.isStartToken(symbol)) {
 
-                    var handler = new hndl(self.config, symbol, self.env);
+                    var handler = new hndl(self.data, symbol, self.env, self);
 
                     self.operations.push(handler)
                     return false;
@@ -427,11 +440,11 @@ var Config = Class.extend({
         return getObjectFromXPath(this.data, xpath, defaultValues);
     }
 }, {
-    register : function(file, name)
+    register : function(file, name, env)
     {
         global.WiresConfig = global.WiresConfig || {};
         var alias = name || "main";
-        global.WiresConfig[alias] = new Config();
+        global.WiresConfig[alias] = new Config(env);
         global.WiresConfig[alias].load(file);
     },
     getMain : function()
@@ -446,10 +459,12 @@ var Config = Class.extend({
 });
 module.exports = Config;
 
-/*Config.register('./test.conf')
+//Config.register('./test.conf')
 
-var conf = Config.get()
-console.log(conf);*/
+//var conf = Config.getConfig()
+
+
+
 /*
 var cfg = new Config();
 
